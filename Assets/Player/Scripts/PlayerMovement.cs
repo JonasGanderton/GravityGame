@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
         // Could use if a or b, then include secondary mappings (i.e. WASD/arrow keys)
         
         // Check acceleration input
-        if (Input.GetKey(KeyCode.Space) || Input.GetAxisRaw("Vertical") > 0)
+        if (Input.GetAxisRaw("Vertical") > 0)
         {
             _accelerate = accelerationRate;
         }
