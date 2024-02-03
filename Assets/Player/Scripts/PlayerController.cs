@@ -1,18 +1,8 @@
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
-
 {
-	public BulletController bulletController;
 	private Rigidbody2D _rigidbody2D;
-
-	void Update()
-	{
-		if (Input.GetKey(KeyCode.Space))
-		{
-            bulletController.Fire(_rigidbody2D.transform);
-		}
-	}
 	
 	private void Awake()
 	{

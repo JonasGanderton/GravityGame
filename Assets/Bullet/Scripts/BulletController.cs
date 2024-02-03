@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletController : MonoBehaviour
@@ -8,15 +5,30 @@ public class BulletController : MonoBehaviour
     public GameObject bulletPrefab;
     
     public float fireForce = 0.05f;
+    public float firingDelay = 0.1f;
+    
+    private Transform _firePoint;
+    private float _nextFireTime;
 
-    public void Fire(Transform firePoint)
+    private void Awake()
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        bullet.GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(0f, fireForce), ForceMode2D.Impulse);
+        _firePoint = GetComponent<Transform>();
+        Debug.Log(_firePoint);
     }
 
-    public void OnCollisionEnter2D(Collision2D other)
-    { 
-        Destroy(gameObject);
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            if (Time.time < _nextFireTime) return;
+            Fire();
+            _nextFireTime = Time.time + firingDelay;
+        }
+    }
+
+    public void Fire()
+    {
+        GameObject bullet = Instantiate(bulletPrefab, _firePoint.position, _firePoint.rotation);
+        bullet.GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(0f, fireForce), ForceMode2D.Impulse);
     }
 }
