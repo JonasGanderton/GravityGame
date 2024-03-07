@@ -1,5 +1,8 @@
 using UnityEngine;
 
+[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class BulletBehaviour : MonoBehaviour
 {
     private SpriteRenderer _spriteRenderer;
