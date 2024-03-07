@@ -1421,6 +1421,7 @@ MonoBehaviour:
   accelerationRate: 200
   rotationForce: 3
   angularDrag: 4.5
+  drag: 0.2
 --- !u!114 &1391499158
 MonoBehaviour:
   m_ObjectHideFlags: 0

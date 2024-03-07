@@ -7,6 +7,7 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private float accelerationRate = 200;
     [SerializeField] private float rotationForce = 3;
     [SerializeField] private float angularDrag = 4.5f;
+    [SerializeField] private float drag = 0.2f;
     
     private Rigidbody2D _rb;
     private Transform _tr;
@@ -18,6 +19,7 @@ public class PlayerMovementController : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _tr = GetComponent<Transform>();
         _rb.mass = mass;
+        _rb.drag = drag;
         _rb.angularDrag = angularDrag;
         _rb.gravityScale = 0.3f;
         _currentAcceleration = 0;
