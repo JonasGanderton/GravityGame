@@ -8,7 +8,7 @@ public class BulletBehaviour : MonoBehaviour
     private Transform _transform;
     private bool _isActive;
 
-    [SerializeField] private float firingForce = 0.08f;
+    [SerializeField] private float initialSpeed = 10f;
     
     public void Awake()
     {
@@ -46,7 +46,7 @@ public class BulletBehaviour : MonoBehaviour
     {
         SetActive();
         _transform.SetPositionAndRotation(position, rotation);
-        _rigidbody2D.AddForce(_transform.up * firingForce, ForceMode2D.Impulse);
+        _rigidbody2D.velocity = _transform.up * initialSpeed;
     }
 
     public bool IsActive()
