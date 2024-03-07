@@ -1163,12 +1163,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1391499150}
   - component: {fileID: 1391499149}
-  - component: {fileID: 1391499151}
-  - component: {fileID: 1391499154}
   - component: {fileID: 1391499152}
   - component: {fileID: 1391499156}
   - component: {fileID: 1391499153}
   - component: {fileID: 1391499155}
+  - component: {fileID: 1391499158}
+  - component: {fileID: 1391499157}
   m_Layer: 8
   m_Name: Player sprite
   m_TagString: Untagged
@@ -1245,18 +1245,6 @@ Transform:
   - {fileID: 1405440519}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1391499151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1391499148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e616ee3bb2a2fc14aba6efb3b8ba14fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &1391499152
 Rigidbody2D:
   serializedVersion: 4
@@ -1271,8 +1259,8 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 1000000
-  m_GravityScale: 0.3
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1329,21 +1317,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.26061937, y: 0.20103867}
   m_EdgeRadius: 0
---- !u!114 &1391499154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1391499148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4182d52b22352d44ba95908820657587, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerMovement: {fileID: 0}
-  spinSpeed: 180
-  accelerationRate: 450
 --- !u!58 &1391499155
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1351,7 +1324,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1391499148}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -1386,7 +1359,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1391499148}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -1432,6 +1405,34 @@ PolygonCollider2D:
       - {x: 0.12993063, y: -0.06515364}
       - {x: 0.13034417, y: -0.029561669}
   m_UseDelaunayMesh: 0
+--- !u!114 &1391499157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391499148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc2fb6fc6f1a1b54bb3a5d5a736357f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mass: 25
+  accelerationRate: 200
+  rotationForce: 3
+  angularDrag: 4.5
+--- !u!114 &1391499158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391499148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20b1f0ebb684aea8b0ff31072fffe1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1405440518
 GameObject:
   m_ObjectHideFlags: 0
