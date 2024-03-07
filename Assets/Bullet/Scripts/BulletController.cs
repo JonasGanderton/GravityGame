@@ -2,33 +2,54 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
+    [SerializeField] private float firingDelay = 0.06f;
+    [SerializeField] private int bulletsFired; // Included for quick viewing
+    
     public GameObject bulletPrefab;
+    private GameObject[] _bulletPrefabs;
+
+    private Transform _transform;
+
+    private BulletBehaviour[] _bullets;
+    private const int MaxBullets = 25;
+    private int _nextBulletIndex = 0;
     
-    public float fireForce = 0.05f;
-    public float firingDelay = 0.1f;
-    
-    private Transform _firePoint;
     private float _nextFireTime;
 
     private void Awake()
     {
-        _firePoint = GetComponent<Transform>();
-        Debug.Log(_firePoint);
-    }
+        _transform = GetComponent<Transform>();
 
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.Space))
+        _bullets = new BulletBehaviour[MaxBullets];
+        _bulletPrefabs = new GameObject[MaxBullets];
+
+        for (int i = 0; i < MaxBullets; i++)
         {
-            if (Time.time < _nextFireTime) return;
-            Fire();
-            _nextFireTime = Time.time + firingDelay;
+            _bulletPrefabs[i] = Instantiate(bulletPrefab);
+            _bullets[i] = _bulletPrefabs[i].GetComponent<BulletBehaviour>();
         }
     }
 
-    public void Fire()
+    private void SetNextBulletIndex()
     {
-        GameObject bullet = Instantiate(bulletPrefab, _firePoint.position, _firePoint.rotation);
-        bullet.GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(0f, fireForce), ForceMode2D.Impulse);
+        _nextBulletIndex++;
+        if (_nextBulletIndex == MaxBullets)
+        {
+            _nextBulletIndex = 0;
+        }
+    }
+
+    public void Update()
+    {
+        if (!Input.GetKey(KeyCode.Space)) return;
+
+        if (Time.time < _nextFireTime) return;
+
+        if (_bullets[_nextBulletIndex].IsActive()) return;
+
+        _nextFireTime = Time.time + firingDelay;
+        _bullets[_nextBulletIndex].Fire(_transform.position, _transform.rotation);
+        SetNextBulletIndex();
+        bulletsFired++;
     }
 }
