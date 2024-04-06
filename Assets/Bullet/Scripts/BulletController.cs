@@ -41,11 +41,11 @@ public class BulletController : MonoBehaviour
 
     public void Update()
     {
-        if (!Input.GetKey(KeyCode.Space)) return;
+        if (!Input.GetKey(KeyCode.Space)) return; // Check if holding fire button - space
 
-        if (Time.time < _nextFireTime) return;
+        if (Time.time < _nextFireTime) return; // Check if there has been a long enough gap
 
-        if (_bullets[_nextBulletIndex].IsActive()) return;
+        if (_bullets[_nextBulletIndex].IsActive()) return; // Check if there are any available bullets
 
         _nextFireTime = Time.time + firingDelay;
         _bullets[_nextBulletIndex].Fire(_transform.position, _transform.rotation);
