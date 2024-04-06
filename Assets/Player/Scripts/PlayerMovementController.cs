@@ -59,4 +59,13 @@ public class PlayerMovementController : MonoBehaviour
         Accelerate();
         Rotate();
     }
+
+    public void Reset()
+    {
+        //transform.position = Vector3.zero;
+        _rb.position = Vector2.zero;
+        _rb.velocity = Vector2.zero;
+        _rb.rotation = 0;
+        _rb.angularVelocity = 0;
+    }
 }
