@@ -272,7 +272,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aba857deac3487e98a07b036962b7cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 100000
+  maxHitPoints: 50
+  currentHitPoints: 0
 --- !u!1 &194903478
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,7 +301,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 194903478}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a493971861ef6c340bc8d6d67cac23a5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -598,7 +599,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 539109822}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a493971861ef6c340bc8d6d67cac23a5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -869,7 +870,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 795308239}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a493971861ef6c340bc8d6d67cac23a5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1030,7 +1031,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 846260386}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a493971861ef6c340bc8d6d67cac23a5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1373,7 +1374,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1266885600}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a493971861ef6c340bc8d6d67cac23a5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1602,7 +1603,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1388125884}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a493971861ef6c340bc8d6d67cac23a5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1998,7 +1999,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aba857deac3487e98a07b036962b7cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 50
+  maxHitPoints: 50
+  currentHitPoints: 0
 --- !u!1 &1405440518
 GameObject:
   m_ObjectHideFlags: 0
@@ -2175,7 +2177,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1524354811}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a493971861ef6c340bc8d6d67cac23a5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2344,7 +2346,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1868429966}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a493971861ef6c340bc8d6d67cac23a5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
