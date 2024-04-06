@@ -5,7 +5,7 @@ public class BulletController : MonoBehaviour
     [SerializeField] private float firingDelay = 0.06f;
     [SerializeField] private int bulletsFired; // Included for quick viewing
     
-    public GameObject bulletPrefab;
+    [SerializeField] private GameObject bulletPrefab;
     private GameObject[] _bulletPrefabs;
 
     private Transform _transform;
