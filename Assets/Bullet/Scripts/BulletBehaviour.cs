@@ -38,10 +38,14 @@ public class BulletBehaviour : MonoBehaviour
         _isActive = true;
     }
 
-    public void OnCollisionEnter2D()
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        // Differentiate between environment and enemy collisions here
-        // Destroy(gameObject);
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            // Set bullet damage above, change by getting different ship/weapon/power-up
+            collision.gameObject.SendMessage("DoDamage", 10); 
+        }
+        
         SetInactive();
     }
 
