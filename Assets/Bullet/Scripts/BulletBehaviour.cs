@@ -40,7 +40,9 @@ public class BulletBehaviour : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        // Collision matrix is set such that player bullets only hit enemies
+        // and enemy bullets only hit the player
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Player"))
         {
             // Set bullet damage above, change by getting different ship/weapon/power-up
             collision.gameObject.SendMessage("DoDamage", 10); 
