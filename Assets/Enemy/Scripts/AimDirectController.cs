@@ -12,5 +12,7 @@ public class AimDirectController : MonoBehaviour
     private void FixedUpdate()
     {
         transform.LookAt(_target.transform);
+        transform.Rotate(Vector3.right * 90);
+        transform.Rotate(Vector3.down * 90);
     }
 }
