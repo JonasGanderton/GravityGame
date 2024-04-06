@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 133548435}
   m_Layer: 7
   m_Name: EnemyShip
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 194903479}
   m_Layer: 6
   m_Name: TestBox (5)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -569,7 +569,7 @@ GameObject:
   - component: {fileID: 539109823}
   m_Layer: 6
   m_Name: TestBox (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -781,7 +781,7 @@ GameObject:
   - component: {fileID: 795308240}
   m_Layer: 6
   m_Name: TestBox
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -942,7 +942,7 @@ GameObject:
   - component: {fileID: 846260387}
   m_Layer: 6
   m_Name: TestBox (7)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1285,7 +1285,7 @@ GameObject:
   - component: {fileID: 1266885601}
   m_Layer: 6
   m_Name: TestBox (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1514,7 +1514,7 @@ GameObject:
   - component: {fileID: 1388125885}
   m_Layer: 6
   m_Name: TestBox (4)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2073,7 +2073,7 @@ GameObject:
   - component: {fileID: 1524354812}
   m_Layer: 6
   m_Name: TestBox (6)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2201,7 +2201,7 @@ GameObject:
   - component: {fileID: 1678586225}
   m_Layer: 0
   m_Name: TestEnvironment
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2222,11 +2222,11 @@ Transform:
   - {fileID: 795308242}
   - {fileID: 539109825}
   - {fileID: 1868429969}
+  - {fileID: 1266885603}
   - {fileID: 1388125887}
   - {fileID: 194903481}
-  - {fileID: 846260389}
   - {fileID: 1524354814}
-  - {fileID: 1266885603}
+  - {fileID: 846260389}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1868429966
@@ -2242,7 +2242,7 @@ GameObject:
   - component: {fileID: 1868429967}
   m_Layer: 6
   m_Name: TestBox (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
