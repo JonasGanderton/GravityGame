@@ -77,7 +77,10 @@ public class PlayerMovementController : MonoBehaviour
         if (collision.gameObject.CompareTag("Environment"))
         {
             // Add invincibility frames?
-            float damage = collision.relativeVelocity.magnitude * crashingDamageMultiplier;
+            
+            // Reduces damage linearly between a direct crash having full damage, to a glance (parallel to surface) doing 20%
+            float reduceOnAngledCrash = 1 - (Vector2.Angle(collision.contacts[0].normal, collision.relativeVelocity) * Mathf.Deg2Rad * 1.6f / Mathf.PI);
+            float damage = reduceOnAngledCrash * collision.relativeVelocity.magnitude * crashingDamageMultiplier;
             if (damage > damageThreshold)
             {
                 this.gameObject.SendMessage("DoDamage", damage);
