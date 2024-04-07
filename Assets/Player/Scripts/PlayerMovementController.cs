@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -8,6 +9,8 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private float rotationForce = 3;
     [SerializeField] private float angularDrag = 4.5f;
     [SerializeField] private float drag = 0.2f;
+    [SerializeField] private float crashingDamageMultiplier = 10f;
+    [SerializeField] private float damageThreshold = 0.5f;
     
     private Rigidbody2D _rb;
     private Transform _tr;
@@ -67,5 +70,18 @@ public class PlayerMovementController : MonoBehaviour
         _rb.velocity = Vector2.zero;
         _rb.rotation = 0;
         _rb.angularVelocity = 0;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Environment"))
+        {
+            // Add invincibility frames?
+            float damage = _rb.velocity.sqrMagnitude * crashingDamageMultiplier;
+            if (damage > damageThreshold)
+            {
+                this.gameObject.SendMessage("DoDamage", damage);
+            }
+        }
     }
 }

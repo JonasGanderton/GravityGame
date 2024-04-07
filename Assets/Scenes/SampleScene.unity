@@ -1910,6 +1910,8 @@ MonoBehaviour:
   rotationForce: 3
   angularDrag: 4.5
   drag: 0.2
+  crashingDamageMultiplier: 10
+  damageThreshold: 0.5
 --- !u!114 &1391499158
 MonoBehaviour:
   m_ObjectHideFlags: 0
