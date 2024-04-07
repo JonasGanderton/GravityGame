@@ -9,8 +9,8 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private float rotationForce = 3;
     [SerializeField] private float angularDrag = 4.5f;
     [SerializeField] private float drag = 0.2f;
-    [SerializeField] private float crashingDamageMultiplier = 10f;
-    [SerializeField] private float damageThreshold = 0.5f;
+    [SerializeField] private float crashingDamageMultiplier = 3f;
+    [SerializeField] private float damageThreshold = 5f;
     
     private Rigidbody2D _rb;
     private Transform _tr;
@@ -77,7 +77,7 @@ public class PlayerMovementController : MonoBehaviour
         if (collision.gameObject.CompareTag("Environment"))
         {
             // Add invincibility frames?
-            float damage = _rb.velocity.sqrMagnitude * crashingDamageMultiplier;
+            float damage = collision.relativeVelocity.magnitude * crashingDamageMultiplier;
             if (damage > damageThreshold)
             {
                 this.gameObject.SendMessage("DoDamage", damage);
