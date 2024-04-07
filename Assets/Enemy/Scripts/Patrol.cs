@@ -2,16 +2,13 @@ using UnityEngine;
 
 public class Patrol : MonoBehaviour
 {
-    [SerializeField] private GameObject patrolRoute;
     [SerializeField] private float speed = 1;
     private Transform[] _waypoints;
     private int _currentWaypointIndex;
 
-    private void Awake()
+    private void Start()
     {
-        _waypoints = patrolRoute.GetComponentsInChildren<Transform>();
-        // Method above includes parent transform which isn't a patrol waypoint
-        _currentWaypointIndex = 1;
+        transform.position = _waypoints[_currentWaypointIndex].position;
     }
 
     private void FixedUpdate()
@@ -32,5 +29,11 @@ public class Patrol : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, currentWaypoint.position, speed * Time.deltaTime);
         }
+    }
+
+    public void SetPatrol(Transform[] newPatrol)
+    {
+        _waypoints = newPatrol;
+        _currentWaypointIndex = 1; // Skip parent's position
     }
 }
