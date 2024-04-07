@@ -3,15 +3,15 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     
-    [SerializeField] private int maxHitPoints = 50;
-    [SerializeField] private int currentHitPoints;
+    [SerializeField] private float maxHitPoints = 50;
+    [SerializeField] private float currentHitPoints;
 
     private void Awake()
     {
         currentHitPoints = maxHitPoints;
     }
 
-    public void DoDamage(int damage)
+    public void DoDamage(float damage)
     {
         currentHitPoints -= damage;
         if (currentHitPoints <= 0)
