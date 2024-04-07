@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class EnemyBulletController : MonoBehaviour
@@ -14,6 +13,8 @@ public class EnemyBulletController : MonoBehaviour
     
     private float _nextFireTime;
 
+    private AimDirectController _aimDirectController; // Could use inheritance for different AimControllers (e.g. AimAheadController)
+
     private void Awake()
     {
         _bullets = new BulletBehaviour[MaxBullets];
@@ -26,6 +27,8 @@ public class EnemyBulletController : MonoBehaviour
         }
         
         _nextFireTime = Time.time + firingDelay;
+
+        _aimDirectController = this.GetComponent<AimDirectController>();
 
     }
 
@@ -40,6 +43,7 @@ public class EnemyBulletController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!_aimDirectController.TargetVisible()) return; // Can't see target
         if (Time.time < _nextFireTime) return; // Check if there has been a long enough gap
         if (_bullets[_nextBulletIndex].IsActive()) return; // Check if there are any available bullets
         _nextFireTime = Time.time + firingDelay;
