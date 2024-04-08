@@ -1911,8 +1911,6 @@ MonoBehaviour:
   rotationForce: 3
   angularDrag: 4.5
   drag: 0.2
-  crashingDamageMultiplier: 3
-  damageThreshold: 5
 --- !u!114 &1391499158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1939,6 +1937,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHitPoints: 50
   currentHitPoints: 0
+--- !u!114 &1391499160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391499148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eb9adc23e2d45dfa8cf5a86950eec41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crashingDamageMultiplier: 3
+  damageThreshold: 5
 --- !u!1 &1405440518
 GameObject:
   m_ObjectHideFlags: 0
