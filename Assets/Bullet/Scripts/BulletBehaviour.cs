@@ -12,6 +12,7 @@ public class BulletBehaviour : MonoBehaviour
     private bool _isActive;
 
     [SerializeField] private float initialSpeed = 10f;
+    private float _damage = 10f;
     
     public void Awake()
     {
@@ -45,7 +46,7 @@ public class BulletBehaviour : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Player"))
         {
             // Set bullet damage above, change by getting different ship/weapon/power-up
-            collision.gameObject.SendMessage("DoDamage", 10); 
+            collision.gameObject.SendMessage("DoDamage", _damage); 
         }
         
         SetInactive();
@@ -61,5 +62,10 @@ public class BulletBehaviour : MonoBehaviour
     public bool IsActive()
     {
         return _isActive;
+    }
+
+    public void SetDamage(float newDamage)
+    {
+        _damage = newDamage;
     }
 }
