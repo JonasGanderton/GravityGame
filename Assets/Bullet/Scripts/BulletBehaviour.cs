@@ -78,4 +78,9 @@ public class BulletBehaviour : MonoBehaviour
     {
         _damage = newDamage;
     }
+
+    public void BoostDamage(float multiplier)
+    {
+        _damage *= multiplier;
+    }
 }

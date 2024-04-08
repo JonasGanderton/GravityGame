@@ -52,4 +52,17 @@ public class BulletController : MonoBehaviour
         SetNextBulletIndex();
         bulletsFired++;
     }
+
+    public void BoostDamageAll(float multiplier)
+    {
+        foreach (BulletBehaviour bullet in _bullets)
+        {
+            bullet.BoostDamage(multiplier);
+        }
+    }
+
+    public void DecreaseReloadTime(float multiplier)
+    {
+        firingDelay *= multiplier;
+    }
 }
