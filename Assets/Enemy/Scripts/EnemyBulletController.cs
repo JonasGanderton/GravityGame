@@ -14,6 +14,7 @@ public class EnemyBulletController : MonoBehaviour
     private float _nextFireTime;
 
     private AimDirectController _aimDirectController; // Could use inheritance for different AimControllers (e.g. AimAheadController)
+    private float _bulletDamage = 5f;
 
     private void Awake()
     {
@@ -24,6 +25,7 @@ public class EnemyBulletController : MonoBehaviour
         {
             _bulletPrefabs[i] = Instantiate(bulletPrefab);
             _bullets[i] = _bulletPrefabs[i].GetComponent<BulletBehaviour>();
+            _bullets[i].SetDamage(_bulletDamage);
         }
         
         _nextFireTime = Time.time + firingDelay;
