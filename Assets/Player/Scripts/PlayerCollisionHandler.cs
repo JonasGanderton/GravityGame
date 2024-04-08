@@ -32,7 +32,6 @@ public class PlayerCollisionHandler : MonoBehaviour
 
     private void PickUpCollision(Collision2D collision)
     {
-        // Get effect of PickUp
-        Destroy(collision.gameObject);
+        collision.gameObject.SendMessage("Activate");
     }
 }
