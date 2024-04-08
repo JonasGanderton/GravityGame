@@ -11,6 +11,12 @@ public class Health : MonoBehaviour
         currentHitPoints = maxHitPoints;
     }
 
+    public void SetMaxHealth(float newMaxHitPoints)
+    {
+        maxHitPoints = newMaxHitPoints;
+        currentHitPoints = maxHitPoints; // If increase max without regain hp, remove this line and change awake() to start()
+    }
+
     public void DoDamage(float damage)
     {
         currentHitPoints -= damage;
@@ -30,6 +36,10 @@ public class Health : MonoBehaviour
         else if (this.CompareTag("Enemy"))
         {
             Destroy(this.gameObject);
+        }
+        else if (this.CompareTag("Projectile"))
+        {
+            this.gameObject.SendMessage("SetInactive");
         }
     }
         

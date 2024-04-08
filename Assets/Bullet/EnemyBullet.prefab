@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 4639927654794299034}
   - component: {fileID: 939746648457661509}
   - component: {fileID: -2682300039871640832}
+  - component: {fileID: 3236224255437352975}
   m_Layer: 10
   m_Name: EnemyBullet
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -172,3 +173,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialSpeed: 10
+--- !u!114 &3236224255437352975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8181472173299217396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aba857deac3487e98a07b036962b7cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHitPoints: 50
+  currentHitPoints: 0

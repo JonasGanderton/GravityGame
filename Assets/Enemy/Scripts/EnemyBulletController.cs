@@ -24,6 +24,7 @@ public class EnemyBulletController : MonoBehaviour
         for (int i = 0; i < MaxBullets; i++)
         {
             _bulletPrefabs[i] = Instantiate(bulletPrefab);
+            _bulletPrefabs[i].GetComponent<Health>().SetMaxHealth(1);
             _bullets[i] = _bulletPrefabs[i].GetComponent<BulletBehaviour>();
             _bullets[i].SetDamage(_bulletDamage);
         }
