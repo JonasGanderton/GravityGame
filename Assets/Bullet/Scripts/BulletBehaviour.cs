@@ -10,6 +10,8 @@ public class BulletBehaviour : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private Transform _transform;
     private bool _isActive;
+    private int _maxBounces = 0;
+    private int _bouncesRemaining;
 
     [SerializeField] private float initialSpeed = 10f;
     private float _damage = 10f;
@@ -37,6 +39,7 @@ public class BulletBehaviour : MonoBehaviour
         _boxCollider2D.enabled = true;
         _rigidbody2D.WakeUp();
         _isActive = true;
+        _bouncesRemaining = _maxBounces;
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -58,7 +61,14 @@ public class BulletBehaviour : MonoBehaviour
         }
         else if (collisionTag is "Environment")
         {
-            SetInactive();
+            if (_bouncesRemaining <= 0)
+            {
+                SetInactive();
+            }
+            else
+            {
+                _bouncesRemaining--;
+            }
         }
     }
 
@@ -82,5 +92,10 @@ public class BulletBehaviour : MonoBehaviour
     public void BoostDamage(float multiplier)
     {
         _damage *= multiplier;
+    }
+
+    public void AddBounce(int numBounces)
+    {
+        _maxBounces += numBounces;
     }
 }

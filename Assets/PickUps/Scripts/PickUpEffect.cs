@@ -6,13 +6,15 @@ public class PickUpEffect : MonoBehaviour
     private enum Effect
     {
         BoostDamage,
-        DecreaseReloadTime
+        DecreaseReloadTime,
+        AddBounce
     }
     
     [SerializeField] private Effect effect = Effect.BoostDamage;
     [SerializeField] private float effectDuration = 10f;
     [SerializeField] private float damageBoost = 5f;
     [SerializeField] private float reloadTimeDecrease = 0.5f;
+    [SerializeField] private int extraBounces = 1;
     
     private SpriteRenderer _spriteRenderer;
     private CircleCollider2D _circleCollider2D;
@@ -33,7 +35,6 @@ public class PickUpEffect : MonoBehaviour
         _circleCollider2D.enabled = active;
     }
     
-    // Is there a better way of getting the BulletController?
     public void Activate()
     {
         SetIsReady(false);
@@ -45,6 +46,10 @@ public class PickUpEffect : MonoBehaviour
         else if (effect == Effect.DecreaseReloadTime)
         {
             _bulletController.DecreaseReloadTime(reloadTimeDecrease);
+        }
+        else if (effect == Effect.AddBounce)
+        {
+            _bulletController.AddBounceAll(extraBounces);
         }
 
         _effectIsActive = true;
@@ -60,6 +65,10 @@ public class PickUpEffect : MonoBehaviour
         else if (effect == Effect.DecreaseReloadTime)
         {
             _bulletController.DecreaseReloadTime(1/reloadTimeDecrease);
+        } 
+        else if (effect == Effect.AddBounce)
+        {
+            _bulletController.AddBounceAll(-extraBounces);
         }
 
         _effectIsActive = false;

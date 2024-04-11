@@ -65,4 +65,12 @@ public class BulletController : MonoBehaviour
     {
         firingDelay *= multiplier;
     }
+
+    public void AddBounceAll(int numBounces)
+    {
+        foreach (BulletBehaviour bullet in _bullets)
+        {
+            bullet.AddBounce(numBounces);
+        }
+    }
 }

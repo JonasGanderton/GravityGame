@@ -2437,6 +2437,7 @@ MonoBehaviour:
   effectDuration: 10
   damageBoost: 5
   reloadTimeDecrease: 0.5
+  extraBounces: 1
 --- !u!1 &1868429966
 GameObject:
   m_ObjectHideFlags: 0
