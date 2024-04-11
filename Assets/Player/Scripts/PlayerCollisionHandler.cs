@@ -11,9 +11,13 @@ public class PlayerCollisionHandler : MonoBehaviour
         {
             EnvironmentCollision(collision);
         }
-        else if (collision.gameObject.CompareTag("PickUp"))
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("PickUp"))
         {
-            PickUpCollision(collision);
+            PickUpItem(other);
         }
     }
 
@@ -30,8 +34,8 @@ public class PlayerCollisionHandler : MonoBehaviour
         }
     }
 
-    private void PickUpCollision(Collision2D collision)
+    private void PickUpItem(Collider2D other)
     {
-        collision.gameObject.SendMessage("Activate");
+        other.gameObject.SendMessage("Activate");
     }
 }
