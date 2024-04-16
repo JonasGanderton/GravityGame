@@ -68,6 +68,23 @@ public class BulletBehaviour : MonoBehaviour
             else
             {
                 _bouncesRemaining--;
+                transform.LookAt(new Vector2(transform.position.x, transform.position.y) + _rigidbody2D.velocity);
+                
+                // LookAt rotates the sprite, so we rotate it back (x += 90 degrees)
+                transform.Rotate(Vector3.right * 90);
+                
+                // If the collision is at (or very near to) 90 degrees to a horizontal surface
+                // - We don't need to rotate around they axis
+                // - The angle is typically < 0.001 degrees from 0 or 180
+                // However, most of the time we don't have such a collision
+                // and need to rotate downwards (y -= 90 degrees)
+                if (transform.rotation.eulerAngles.y is not (< 0.1f or (> 179.9f and < 180.1f) or > 359.9f))
+                {
+                    transform.Rotate(Vector3.down * 90);
+                }
+                
+                // If more problems later, check with near-parallel collisions
+                // Should be sorted with check above, but not 100% sure.
             }
         }
     }
