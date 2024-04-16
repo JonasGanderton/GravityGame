@@ -12,7 +12,6 @@ public class EnemyController : MonoBehaviour
     private void Awake()
     {
         _patrollingEnemies = patrolRoutes.Length;
-        Debug.Log(_patrollingEnemies);
 
         enemies = new GameObject[_patrollingEnemies];
         
