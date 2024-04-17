@@ -4,7 +4,9 @@ public class PlayerCollisionHandler : MonoBehaviour
 {
     [SerializeField] private float crashingDamageMultiplier = 3f;
     [SerializeField] private float damageThreshold = 5f;
-    
+    private float pickUpDelay = 0.1f;
+    private float nextPickUpTime;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Environment"))
@@ -36,6 +38,11 @@ public class PlayerCollisionHandler : MonoBehaviour
 
     private void PickUpItem(Collider2D other)
     {
-        other.gameObject.SendMessage("Activate");
+        // Prevent double pick up
+        if (Time.time >= nextPickUpTime)
+        {
+            other.gameObject.SendMessage("Activate");
+            nextPickUpTime = Time.time + pickUpDelay;
+        }
     }
 }
