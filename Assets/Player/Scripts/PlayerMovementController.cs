@@ -13,6 +13,7 @@ public class PlayerMovementController : MonoBehaviour
     private Transform _tr;
     private float _currentAcceleration;
     private float _currentRotationForce;
+    private Vector2 resetPosition;
     
     public void Awake()
     {
@@ -24,6 +25,7 @@ public class PlayerMovementController : MonoBehaviour
         _rb.gravityScale = 0.3f;
         _currentAcceleration = 0;
         _currentRotationForce = 0;
+        resetPosition = _rb.position;
     }
 
     public void SetAccelerating(bool accelerate)
@@ -63,7 +65,7 @@ public class PlayerMovementController : MonoBehaviour
     public void Reset()
     {
         //transform.position = Vector3.zero;
-        _rb.position = Vector2.zero;
+        _rb.position = resetPosition;
         _rb.velocity = Vector2.zero;
         _rb.rotation = 0;
         _rb.angularVelocity = 0;
