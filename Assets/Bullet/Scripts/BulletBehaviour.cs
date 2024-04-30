@@ -13,7 +13,7 @@ public class BulletBehaviour : MonoBehaviour
     private int _maxBounces = 0;
     private int _bouncesRemaining;
 
-    [SerializeField] private float initialSpeed = 10f;
+    [SerializeField] private float initialSpeed = 15f;
     private float _damage = 10f;
     
     public void Awake()

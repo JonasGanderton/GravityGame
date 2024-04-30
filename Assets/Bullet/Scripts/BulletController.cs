@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    [SerializeField] private float firingDelay = 0.06f;
+    [SerializeField] private float firingDelay = 0.1f;
     [SerializeField] private int bulletsFired; // Included for quick viewing
     
     [SerializeField] private GameObject bulletPrefab;
