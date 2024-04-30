@@ -3,8 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovementController : MonoBehaviour
 {
-    [SerializeField] private float mass = 25;
-    [SerializeField] private float accelerationRate = 200;
+    [SerializeField] private float mass = 2.011673f; // Reduced mass with larger collider for new sprite
+    [SerializeField] private float accelerationRate = 16.09338f; // Reduced acceleration for reduced mass
     [SerializeField] private float rotationForce = 3;
     [SerializeField] private float angularDrag = 4.5f;
     [SerializeField] private float drag = 0.2f;

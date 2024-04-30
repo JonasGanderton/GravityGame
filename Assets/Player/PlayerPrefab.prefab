@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 4915796288564422733}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.375, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -58,8 +58,6 @@ GameObject:
   - component: {fileID: 5164125809814351474}
   - component: {fileID: 183562773512499060}
   - component: {fileID: 2828949871114113743}
-  - component: {fileID: 4098744190711163719}
-  - component: {fileID: 3200114948900784767}
   - component: {fileID: 7215640445209941969}
   - component: {fileID: 6854314377177949938}
   - component: {fileID: 4756512521963766270}
@@ -129,7 +127,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e0ccc91f76c02e24db06471608623cc2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ab931883d86bdd3458434e236a0cf7e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -167,104 +165,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!60 &4098744190711163719
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8550135973421663224}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
-    newSize: {x: 0.64, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.014199633, y: 0.100510985}
-      - {x: -0.01283112, y: 0.10027897}
-      - {x: -0.12981494, y: -0.029489012}
-      - {x: -0.12981494, y: -0.06512775}
-      - {x: -0.059463337, y: -0.1}
-      - {x: 0.06070858, y: -0.1}
-      - {x: 0.12993063, y: -0.06515364}
-      - {x: 0.13034417, y: -0.029561669}
-  m_UseDelaunayMesh: 0
---- !u!61 &3200114948900784767
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8550135973421663224}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.000000029802322, y: 0.0001020357}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
-    newSize: {x: 0.64, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.26061937, y: 0.20103867}
-  m_EdgeRadius: 0
 --- !u!58 &7215640445209941969
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -299,7 +199,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.01}
   serializedVersion: 2
-  m_Radius: 0.10495676
+  m_Radius: 0.37
 --- !u!114 &6854314377177949938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,8 +224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc2fb6fc6f1a1b54bb3a5d5a736357f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mass: 25
-  accelerationRate: 200
+  mass: 2.011673
+  accelerationRate: 16.09338
   rotationForce: 3
   angularDrag: 4.5
   drag: 0.2
