@@ -3,7 +3,7 @@ using UnityEngine;
 // Aims directly at target
 public class AimDirectController : MonoBehaviour
 {
-    [SerializeField] private float viewRange = 6;
+    [SerializeField] private float viewRange = 15;
     private GameObject _target;
     private bool _targetVisible;
     private void Awake()
