@@ -1,25 +1,20 @@
 using UnityEngine;
 
-public class BulletController : MonoBehaviour
+public abstract class BulletController : MonoBehaviour
 {
     [SerializeField] private float firingDelay = 0.1f;
-    [SerializeField] private int bulletsFired; // Included for quick viewing
     
     [SerializeField] private GameObject bulletPrefab;
     private GameObject[] _bulletPrefabs;
 
-    private Transform _transform;
-
     private BulletBehaviour[] _bullets;
     private const int MaxBullets = 25;
     private int _nextBulletIndex = 0;
-    
+
     private float _nextFireTime;
 
     private void Awake()
     {
-        _transform = GetComponent<Transform>();
-
         _bullets = new BulletBehaviour[MaxBullets];
         _bulletPrefabs = new GameObject[MaxBullets];
 
@@ -40,18 +35,23 @@ public class BulletController : MonoBehaviour
         }
     }
 
-    public void Update()
+    private bool CanShoot()
     {
-        if (!Input.GetKey(KeyCode.Space)) return; // Check if holding fire button - space
+        if (Time.time < _nextFireTime) return false; // Check if there has been a long enough gap
+        
+        return !_bullets[_nextBulletIndex].IsActive(); // Check if there are any available bullets
+        
+        // Could loop through to next bullet(s) in case a bullet takes longer to return?
+        // Potential for hidden bugs slowly decreasing number of bullets available
+    }
 
-        if (Time.time < _nextFireTime) return; // Check if there has been a long enough gap
-
-        if (_bullets[_nextBulletIndex].IsActive()) return; // Check if there are any available bullets
+    protected void Shoot()
+    {
+        if (!CanShoot()) return;
 
         _nextFireTime = Time.time + firingDelay;
-        _bullets[_nextBulletIndex].Fire(_transform.position, _transform.rotation);
+        _bullets[_nextBulletIndex].Fire(transform.position, transform.rotation);
         SetNextBulletIndex();
-        bulletsFired++;
     }
 
     public void BoostDamageAll(float multiplier)

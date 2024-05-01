@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 811697011108413997}
-  - component: {fileID: 844279835341795250}
+  - component: {fileID: 7731326113544751738}
   m_Layer: 8
   m_Name: PlayerWeapon
   m_TagString: PlayerWeapon
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5164125809814351474}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &844279835341795250
+--- !u!114 &7731326113544751738
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,11 +41,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4915796288564422733}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dab8a92b4f1d604bb66cc4f8b2f2b79, type: 3}
+  m_Script: {fileID: 11500000, guid: 1189bc5653064d6388035d84b7451e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firingDelay: 0.06
-  bulletsFired: 0
+  firingDelay: 0.1
   bulletPrefab: {fileID: 8181472173299217396, guid: 462a85e4ffaef0944a58315da7291fe3, type: 3}
 --- !u!1 &8550135973421663224
 GameObject:
