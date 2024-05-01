@@ -2,18 +2,18 @@ using UnityEngine;
 
 public abstract class BulletController : MonoBehaviour
 {
-    [SerializeField] private float firingDelay = 0.1f;
-    
     [SerializeField] private GameObject bulletPrefab;
     private GameObject[] _bulletPrefabs;
-
     private BulletBehaviour[] _bullets;
-    private const int MaxBullets = 25;
-    private int _nextBulletIndex = 0;
+
+    protected float BulletDamage = 10f;
+    protected float FiringDelay = 0.1f;
+    protected int MaxBullets = 25;
 
     private float _nextFireTime;
+    private int _nextBulletIndex = 0;
 
-    private void Awake()
+    protected void Awake()
     {
         _bullets = new BulletBehaviour[MaxBullets];
         _bulletPrefabs = new GameObject[MaxBullets];
@@ -23,6 +23,7 @@ public abstract class BulletController : MonoBehaviour
             _bulletPrefabs[i] = Instantiate(bulletPrefab);
             _bulletPrefabs[i].GetComponent<Health>().SetMaxHealth(1);
             _bullets[i] = _bulletPrefabs[i].GetComponent<BulletBehaviour>();
+            _bullets[i].SetDamage(BulletDamage);
         }
     }
 
@@ -49,7 +50,7 @@ public abstract class BulletController : MonoBehaviour
     {
         if (!CanShoot()) return;
 
-        _nextFireTime = Time.time + firingDelay;
+        _nextFireTime = Time.time + FiringDelay;
         _bullets[_nextBulletIndex].Fire(transform.position, transform.rotation);
         SetNextBulletIndex();
     }
@@ -64,7 +65,7 @@ public abstract class BulletController : MonoBehaviour
 
     public void DecreaseReloadTime(float multiplier)
     {
-        firingDelay *= multiplier;
+        FiringDelay *= multiplier;
     }
 
     public void AddBounceAll(int numBounces)
