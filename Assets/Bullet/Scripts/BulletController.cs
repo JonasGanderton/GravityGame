@@ -12,6 +12,8 @@ public abstract class BulletController : MonoBehaviour
 
     private float _nextFireTime;
     private int _nextBulletIndex = 0;
+    
+    private PlayerAnimationController _playerAnimationController;
 
     protected void Awake()
     {
@@ -24,6 +26,11 @@ public abstract class BulletController : MonoBehaviour
             _bulletPrefabs[i].GetComponent<Health>().SetMaxHealth(1);
             _bullets[i] = _bulletPrefabs[i].GetComponent<BulletBehaviour>();
             _bullets[i].SetDamage(BulletDamage);
+        }
+        
+        if (gameObject.CompareTag("PlayerWeapon"))
+        {
+            _playerAnimationController = GetComponentInParent<PlayerAnimationController>();   
         }
     }
 
@@ -49,6 +56,11 @@ public abstract class BulletController : MonoBehaviour
     protected void Shoot()
     {
         if (!CanShoot()) return;
+
+        if (gameObject.CompareTag("PlayerWeapon"))
+        {
+            _playerAnimationController.DoWeaponFlash();
+        }
 
         _nextFireTime = Time.time + FiringDelay;
         _bullets[_nextBulletIndex].Fire(transform.position, transform.rotation);
