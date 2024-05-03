@@ -70,4 +70,11 @@ public class PlayerMovementController : MonoBehaviour
         _rb.rotation = 0;
         _rb.angularVelocity = 0;
     }
+
+    public void ZeroInputs()
+    {
+        _currentAcceleration = 0;
+        _currentRotationForce = 0;
+        // If I want to stop movement entirely, disable rigidbody
+    }
 }

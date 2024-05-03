@@ -4,20 +4,47 @@ public class PlayerInputController : MonoBehaviour
 {
     private PlayerMovementController _playerMovementController;
     private PlayerAnimationController _playerAnimationController;
+    private PlayerBulletController _playerBulletController;
+    private Health _playerHealth;
 
     public void Awake()
     {
         _playerMovementController = GetComponent<PlayerMovementController>();
         _playerAnimationController = GetComponent<PlayerAnimationController>();
+        _playerBulletController = GetComponentInChildren<PlayerBulletController>();
+        _playerHealth = GetComponent<Health>();
     }
 
     public void Update()
     {
-        // Use InputManager.GetButton("action") to allow remapping
-        
+        if (_playerHealth.GetHitPoints() <= 0)
+        {
+            HandleDeathInputs();
+            return;
+        }
+
+        HandleMovementInputs();
+        HandleWeaponInputs();
+    }
+
+    private void HandleDeathInputs()
+    {
+        if (Input.GetKey(KeyCode.R)) // Reset
+        {
+            _playerMovementController.Reset();
+            _playerHealth.ResetHitPoints();
+            _playerAnimationController.Reset();
+        }
+        else
+        {
+            _playerMovementController.ZeroInputs();
+        }
+    }
+
+    private void HandleMovementInputs()
+    {
         bool accelerating = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow); 
         _playerMovementController.SetAccelerating(accelerating);
-        //_playerAnimationController.SetThrusters(accelerating, accelerating);
 
         float rotating = -Input.GetAxisRaw("Horizontal");
         _playerMovementController.SetRotationDirection(rotating);
@@ -34,10 +61,10 @@ public class PlayerInputController : MonoBehaviour
                 break;
         }
         _playerAnimationController.SetThrusters(left, accelerating, right);
+    }
 
-        // Allow use of W or UpArrow
-        //_playerMovementController.SetAccelerating(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow));
-        // Allow use of A/D or LeftArrow/RightArrow
-        //_playerMovementController.SetRotationDirection(-Input.GetAxisRaw("Horizontal"));
+    private void HandleWeaponInputs()
+    {
+        if (Input.GetKey(KeyCode.Space)) _playerBulletController.TryShootingWeapon();
     }
 }

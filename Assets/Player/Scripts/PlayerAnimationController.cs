@@ -15,8 +15,12 @@ public class PlayerAnimationController : MonoBehaviour
     private SpriteRenderer middleThruster;
     private SpriteRenderer rightThruster;
     private SpriteRenderer weaponFlash;
+    private TrailRenderer trail;
 
-    private float FlashActiveUntil;
+    private float flashActiveUntil;
+    private float trailInactiveUntil;
+
+    private bool isDead;
     
     private void Awake()
     {
@@ -25,13 +29,19 @@ public class PlayerAnimationController : MonoBehaviour
         leftThruster = sprites[2];
         middleThruster = sprites[3];
         rightThruster = sprites[4];
-        
+        trail = GetComponentInChildren<TrailRenderer>();
+        DisablePlayerResponsiveSprites();
+
+        flashActiveUntil = 0;
+        isDead = false;
+    }
+
+    private void DisablePlayerResponsiveSprites()
+    {
         leftThruster.enabled = false;
         middleThruster.enabled = false;
         rightThruster.enabled = false;
         weaponFlash.enabled = false;
-
-        FlashActiveUntil = 0;
     }
 
     public void SetThrusters(bool left, bool middle, bool right)
@@ -44,16 +54,30 @@ public class PlayerAnimationController : MonoBehaviour
     public void DoWeaponFlash()
     {
         weaponFlash.enabled = true;
-        FlashActiveUntil = Time.time + 0.05f;
+        flashActiveUntil = Time.time + 0.05f;
     }
 
     private void FixedUpdate()
     {
-        if (weaponFlash.enabled && Time.time > FlashActiveUntil) weaponFlash.enabled = false;
+        if (isDead) return;
+        if (weaponFlash.enabled && Time.time > flashActiveUntil) weaponFlash.enabled = false;
+        if (!trail.emitting && Time.time > trailInactiveUntil) trail.emitting = true;
     }
-    /*
-    private void Update()
+
+    public void DeathAnimation()
     {
-        weaponFlash.enabled
-    }*/
+        if (isDead) return; // Prevent calling this multiple times
+        
+        trail.emitting = false;
+        isDead = true;
+        DisablePlayerResponsiveSprites();
+        
+        // TODO death animation
+    }
+
+    public void Reset()
+    {
+        trailInactiveUntil = Time.time + 0.1f;
+        isDead = false;
+    }
 }

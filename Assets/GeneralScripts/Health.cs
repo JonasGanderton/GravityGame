@@ -30,8 +30,7 @@ public class Health : MonoBehaviour
     {
         if (this.CompareTag("Player"))
         {
-            this.gameObject.SendMessage("Reset");
-            currentHitPoints = maxHitPoints;
+            this.gameObject.SendMessage("DeathAnimation");
         }
         else if (this.CompareTag("Enemy"))
         {
@@ -42,5 +41,14 @@ public class Health : MonoBehaviour
             this.gameObject.SendMessage("SetInactive");
         }
     }
-        
+
+    public float GetHitPoints()
+    {
+        return currentHitPoints;
+    }
+
+    public void ResetHitPoints()
+    {
+        currentHitPoints = maxHitPoints;
+    }
 }
