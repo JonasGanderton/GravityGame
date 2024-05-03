@@ -12,6 +12,7 @@ public class PlayerAnimationController : MonoBehaviour
      */
     
     private SpriteRenderer leftThruster;
+    private SpriteRenderer middleThruster;
     private SpriteRenderer rightThruster;
     private SpriteRenderer weaponFlash;
 
@@ -22,18 +23,21 @@ public class PlayerAnimationController : MonoBehaviour
         SpriteRenderer[] sprites = GetComponentsInChildren<SpriteRenderer>();
         weaponFlash = sprites[1];
         leftThruster = sprites[2];
-        rightThruster = sprites[3];
+        middleThruster = sprites[3];
+        rightThruster = sprites[4];
         
         leftThruster.enabled = false;
+        middleThruster.enabled = false;
         rightThruster.enabled = false;
         weaponFlash.enabled = false;
 
         FlashActiveUntil = 0;
     }
 
-    public void SetThrusters(bool left, bool right)
+    public void SetThrusters(bool left, bool middle, bool right)
     {
         leftThruster.enabled = left;
+        middleThruster.enabled = middle;
         rightThruster.enabled = right;
     }
 

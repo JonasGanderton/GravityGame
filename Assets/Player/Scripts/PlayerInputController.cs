@@ -21,18 +21,19 @@ public class PlayerInputController : MonoBehaviour
 
         float rotating = -Input.GetAxisRaw("Horizontal");
         _playerMovementController.SetRotationDirection(rotating);
+
+        bool left = false;
+        bool right = false;
         switch (rotating)
         {
-            case 0:
-                _playerAnimationController.SetThrusters(accelerating, accelerating);
-                break;
             case > 0:
-                _playerAnimationController.SetThrusters(true, false);
+                right = true;
                 break;
             case < 0:
-                _playerAnimationController.SetThrusters(false, true);
+                left = true;
                 break;
         }
+        _playerAnimationController.SetThrusters(left, accelerating, right);
 
         // Allow use of W or UpArrow
         //_playerMovementController.SetAccelerating(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow));

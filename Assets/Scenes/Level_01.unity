@@ -211,7 +211,7 @@ Transform:
   m_GameObject: {fileID: 152558588}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.53, y: 4.624, z: -10}
+  m_LocalPosition: {x: -0.53, y: 4.2790003, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14075,7 +14075,7 @@ Transform:
   m_GameObject: {fileID: 1518660494}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.53, y: 4.624, z: -10}
+  m_LocalPosition: {x: -0.53, y: 4.2790003, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14123,6 +14123,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 542394748692102504, guid: 2f3ac753968650c40ada6eb64956ef2a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.575
+      objectReference: {fileID: 0}
     - target: {fileID: 2165304027260846148, guid: 2f3ac753968650c40ada6eb64956ef2a, type: 3}
       propertyPath: crashingDamageMultiplier
       value: 2
@@ -14157,7 +14161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5164125809814351474, guid: 2f3ac753968650c40ada6eb64956ef2a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.874
+      value: 3.529
       objectReference: {fileID: 0}
     - target: {fileID: 5164125809814351474, guid: 2f3ac753968650c40ada6eb64956ef2a, type: 3}
       propertyPath: m_LocalPosition.z
