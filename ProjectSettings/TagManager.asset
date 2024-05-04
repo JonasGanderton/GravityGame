@@ -9,6 +9,7 @@ TagManager:
   - Projectile
   - PickUp
   - PlayerWeapon
+  - Goal
   layers:
   - Default
   - TransparentFX
