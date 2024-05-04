@@ -749,7 +749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eb9adc23e2d45dfa8cf5a86950eec41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crashingDamageMultiplier: 3
+  crashingDamageMultiplier: 2
   damageThreshold: 5
 --- !u!114 &1691771692660045292
 MonoBehaviour:

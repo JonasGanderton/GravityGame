@@ -14291,10 +14291,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2165304027260846148, guid: 2f3ac753968650c40ada6eb64956ef2a, type: 3}
-      propertyPath: crashingDamageMultiplier
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3200114948900784767, guid: 2f3ac753968650c40ada6eb64956ef2a, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 0.98
