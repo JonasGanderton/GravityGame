@@ -6,6 +6,7 @@ public class PlayerCollisionHandler : MonoBehaviour
     [SerializeField] private float damageThreshold = 5f;
     private float pickUpDelay = 0.1f;
     private float nextPickUpTime;
+    private bool canCompleteLevel;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -21,6 +22,18 @@ public class PlayerCollisionHandler : MonoBehaviour
         {
             PickUpItem(other);
         }
+        else if (other.gameObject.CompareTag("Goal"))
+        {
+            canCompleteLevel = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Goal"))
+        {
+            canCompleteLevel = false;
+        }
     }
 
     private void EnvironmentCollision(Collision2D collision)
@@ -32,7 +45,13 @@ public class PlayerCollisionHandler : MonoBehaviour
         float damage = reduceOnAngledCrash * collision.relativeVelocity.magnitude * crashingDamageMultiplier;
         if (damage > damageThreshold)
         {
+            canCompleteLevel = false;
             this.gameObject.SendMessage("DoDamage", damage);
+        }
+        else if (canCompleteLevel)
+        {
+            Debug.Log("TODO: Level completed!");
+            // Send message to LevelController - level complete.
         }
     }
 
