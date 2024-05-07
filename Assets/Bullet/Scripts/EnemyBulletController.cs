@@ -7,7 +7,7 @@ public class EnemyBulletController : BulletController
     private new void Awake()
     {
         FiringDelay = 1f;
-        MaxBullets = 2;
+        MaxBullets = 5;
         BulletDamage = 10f;
         _aimDirectController = this.GetComponent<AimDirectController>();
         base.Awake();
