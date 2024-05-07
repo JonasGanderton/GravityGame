@@ -16,23 +16,26 @@ public class PickUpEffect : MonoBehaviour
     [SerializeField] private float reloadTimeDecrease = 0.5f;
     [SerializeField] private int extraBounces = 1;
     
-    private SpriteRenderer _spriteRenderer;
-    private CircleCollider2D _circleCollider2D;
+    private SpriteRenderer[] _spriteRenderers;
+    private Collider2D _collider2D;
     private BulletController _bulletController;
     private bool _effectIsActive;
     private float _deactivateTime;
     
     private void Awake()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        _circleCollider2D = GetComponent<CircleCollider2D>();
+        _spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+        _collider2D = GetComponent<Collider2D>();
         _bulletController = GameObject.FindWithTag("PlayerWeapon").GetComponent<BulletController>();
     }
 
     private void SetIsReady(bool active)
     {
-        _spriteRenderer.enabled = active;
-        _circleCollider2D.enabled = active;
+        foreach (SpriteRenderer sr in _spriteRenderers)
+        {
+            sr.enabled = active;
+        }
+        _collider2D.enabled = active;
     }
     
     public void Activate()
