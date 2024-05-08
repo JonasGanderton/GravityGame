@@ -10,6 +10,7 @@ TagManager:
   - PickUp
   - PlayerWeapon
   - Goal
+  - LevelCompleteMenu
   layers:
   - Default
   - TransparentFX

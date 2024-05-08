@@ -4,9 +4,17 @@ public class PlayerCollisionHandler : MonoBehaviour
 {
     [SerializeField] private float crashingDamageMultiplier = 3f;
     [SerializeField] private float damageThreshold = 5f;
+
+    private GameObject _levelCompleteHandler;
+    
     private float pickUpDelay = 0.1f;
     private float nextPickUpTime;
     private bool canCompleteLevel;
+    
+    private void Awake()
+    {
+        _levelCompleteHandler = GameObject.FindWithTag("LevelCompleteMenu");
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -51,6 +59,7 @@ public class PlayerCollisionHandler : MonoBehaviour
         else if (canCompleteLevel)
         {
             Debug.Log("TODO: Level completed!");
+            _levelCompleteHandler.SendMessage("LevelComplete");
             // Send message to LevelController - level complete.
         }
     }
