@@ -15,6 +15,9 @@ public class PlayerAnimationController : MonoBehaviour
     private SpriteRenderer middleThruster;
     private SpriteRenderer rightThruster;
     private SpriteRenderer weaponFlash;
+    private SpriteRenderer damageLow;
+    private SpriteRenderer damageMedium;
+    private SpriteRenderer damageHigh;
     private TrailRenderer trail;
 
     private float flashActiveUntil;
@@ -29,6 +32,9 @@ public class PlayerAnimationController : MonoBehaviour
         leftThruster = sprites[2];
         middleThruster = sprites[3];
         rightThruster = sprites[4];
+        damageLow = sprites[5];
+        damageMedium = sprites[6];
+        damageHigh = sprites[7];
         trail = GetComponentInChildren<TrailRenderer>();
         DisablePlayerResponsiveSprites();
 
@@ -79,5 +85,27 @@ public class PlayerAnimationController : MonoBehaviour
     {
         trailInactiveUntil = Time.time + 0.1f;
         isDead = false;
+        damageLow.enabled = false;
+        damageMedium.enabled = false;
+        damageHigh.enabled = false;
+    }
+
+    public void DamageSprite(float hitPointsProportion)
+    {
+        if (hitPointsProportion <= 0.25)
+        {
+            damageLow.enabled = false;
+            damageMedium.enabled = false;
+            damageHigh.enabled = true;
+        }
+        else if (hitPointsProportion <= 0.5)
+        {
+            damageLow.enabled = false;
+            damageMedium.enabled = true;
+        }
+        else if (hitPointsProportion <= 0.75)
+        {
+            damageLow.enabled = true;
+        }
     }
 }

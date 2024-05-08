@@ -20,6 +20,10 @@ public class Health : MonoBehaviour
     public void DoDamage(float damage)
     {
         currentHitPoints -= damage;
+        if (this.CompareTag("Player"))
+        {
+            this.gameObject.SendMessage("DamageSprite", currentHitPoints/maxHitPoints);
+        }
         if (currentHitPoints <= 0)
         {
             NoHealth();
