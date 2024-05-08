@@ -10,6 +10,8 @@ public class PlayerAnimationController : MonoBehaviour
      * Show weapon flash and go through 3-5 frames (check Kenney's pack)
      * 
      */
+
+    private ResetPromptController _resetPrompt;
     
     private SpriteRenderer leftThruster;
     private SpriteRenderer middleThruster;
@@ -27,6 +29,7 @@ public class PlayerAnimationController : MonoBehaviour
     
     private void Awake()
     {
+        _resetPrompt = GetComponentInChildren<ResetPromptController>();
         SpriteRenderer[] sprites = GetComponentsInChildren<SpriteRenderer>();
         weaponFlash = sprites[1];
         leftThruster = sprites[2];
@@ -78,6 +81,8 @@ public class PlayerAnimationController : MonoBehaviour
         isDead = true;
         DisablePlayerResponsiveSprites();
         
+        _resetPrompt.SetActive(true);
+        
         // TODO death animation
     }
 
@@ -88,6 +93,7 @@ public class PlayerAnimationController : MonoBehaviour
         damageLow.enabled = false;
         damageMedium.enabled = false;
         damageHigh.enabled = false;
+        _resetPrompt.SetActive(false);
     }
 
     public void DamageSprite(float hitPointsProportion)
