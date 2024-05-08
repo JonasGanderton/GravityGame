@@ -390,7 +390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 110a4d9639b646c38997a2198b94c176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 407282155108284001, guid: 31dc35f55f003974a9b06cfcefc98adb, type: 3}
+  enemyPrefab: {fileID: 407282155108284001, guid: bca44f38596e5f3468f1e8cd572a1597, type: 3}
   patrolRoutes:
   - {fileID: 1654205141}
   - {fileID: 179607624}
