@@ -58,9 +58,7 @@ public class PlayerCollisionHandler : MonoBehaviour
         }
         else if (canCompleteLevel)
         {
-            Debug.Log("TODO: Level completed!");
             _levelCompleteHandler.SendMessage("LevelComplete");
-            // Send message to LevelController - level complete.
         }
     }
 
