@@ -12,6 +12,7 @@ public class ProfileController : MonoBehaviour
     
     private void Awake()
     {
+        EnsureFilesExist();
         LoadPlayerData(PlayerPrefs.GetString("CurrentPlayer"), false);
         _achievementService = GetComponent<AchievementService>();
         
@@ -77,5 +78,19 @@ public class ProfileController : MonoBehaviour
     public PlayerProfile GetPlayerProfile()
     {
         return _player;
+    }
+
+    private void EnsureFilesExist()
+    {
+        for (int i = 1; i <= 3; i++)
+        {
+            string filePath = Application.persistentDataPath + "/P" + i + ".json";
+            if (File.Exists(filePath)) continue;
+            
+            _player = new PlayerProfile();
+            _player.playerName = "P" + i;
+            _player.SaveToFile();
+        }
+
     }
 }
