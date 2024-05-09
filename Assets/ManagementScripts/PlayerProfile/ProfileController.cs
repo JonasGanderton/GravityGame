@@ -8,6 +8,7 @@ public class ProfileController : MonoBehaviour
     private AchievementService _achievementService;
     private Canvas PlayerSelect;
     private Canvas LevelSelect;
+    private Canvas TitleScreen;
     private Button[] LevelButtons;
     
     private void Awake()
@@ -20,10 +21,12 @@ public class ProfileController : MonoBehaviour
         if (canvases[0].CompareTag("LevelCompleteMenu")) return;
         
         // Only on main menu scene
-        PlayerSelect = canvases[0];
-        LevelSelect = canvases[1];
-        PlayerSelect.enabled = true;
+        PlayerSelect = canvases[1];
+        LevelSelect = canvases[2];
+        TitleScreen = canvases[0];
+        PlayerSelect.enabled = false;
         LevelSelect.enabled = false;
+        TitleScreen.enabled = true;
 
         LevelButtons = LevelSelect.GetComponentsInChildren<Button>();
         
@@ -44,6 +47,11 @@ public class ProfileController : MonoBehaviour
         if (displayLevelSelect) ShowLevelSelect();
     }
 
+    public void ShowPlayerSelect()
+    {
+        TitleScreen.enabled = false;
+        PlayerSelect.enabled = true;
+    }
 
     public void ShowLevelSelect()
     {
