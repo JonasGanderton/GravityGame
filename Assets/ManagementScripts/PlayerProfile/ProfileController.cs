@@ -10,7 +10,12 @@ public class ProfileController : MonoBehaviour
     
     private void Awake()
     {
+        LoadPlayerData(PlayerPrefs.GetString("CurrentPlayer"));
+        
         Canvas[] canvases = FindObjectsOfType<Canvas>();
+        if (canvases[0].CompareTag("LevelCompleteMenu")) return;
+        
+        // Only on main menu scene
         PlayerSelect = canvases[0];
         LevelSelect = canvases[1];
         PlayerSelect.enabled = true;
@@ -18,7 +23,6 @@ public class ProfileController : MonoBehaviour
 
         LevelButtons = LevelSelect.GetComponentsInChildren<Button>();
         
-        LoadPlayerData(PlayerPrefs.GetString("CurrentPlayer"));
     }
     
     public void LoadPlayerData(string playerName)
@@ -49,5 +53,16 @@ public class ProfileController : MonoBehaviour
         {
             LevelButtons[i].interactable = false;
         } 
+    }
+
+    public void LevelCompleted()
+    {
+        string scene = PlayerPrefs.GetString("CurrentScene");
+        int level = int.Parse(scene.Substring(scene.Length - 2));
+        if (_player.highestLevelCompleted < level)
+        {
+            _player.highestLevelCompleted = level;
+            _player.SaveToFile();
+        }
     }
 }
