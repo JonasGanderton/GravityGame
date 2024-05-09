@@ -25,7 +25,6 @@ public class AchievementService : MonoBehaviour
 
     public bool CreateNewAchievement(string title, bool unlocked = false)
     {
-        Debug.Log("Creating achievement: " + title + " " + unlocked);
         return abstractAchievements.CreateNewAchievement(title, unlocked);
     }
 }
