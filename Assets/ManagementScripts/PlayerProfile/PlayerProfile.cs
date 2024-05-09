@@ -21,7 +21,6 @@ public class PlayerProfile
 
     public void SaveToFile()
     {
-        // Could use Application.persistentDataPath if needed? 
-        File.WriteAllText("Assets/Resources/" + playerName + ".json", ConvertToString());
+        File.WriteAllText(Application.persistentDataPath + "/" + playerName + ".json", ConvertToString());
     }
 }

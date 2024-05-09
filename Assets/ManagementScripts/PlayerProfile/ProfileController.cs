@@ -1,3 +1,4 @@
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,13 +34,8 @@ public class ProfileController : MonoBehaviour
     }
     private void LoadPlayerData(string playerName, bool displayLevelSelect)
     {
-        TextAsset playerText = Resources.Load(playerName) as TextAsset;
-
-        if (playerText == null) return; // Create new player 
-
-        _player = PlayerProfile.CreateFromString(playerText.text);
-
-        Resources.UnloadAsset(playerText);
+        string playerText = File.ReadAllText(Application.persistentDataPath + "/" + playerName + ".json");
+        _player = PlayerProfile.CreateFromString(playerText);
 
         PlayerPrefs.SetString("CurrentPlayer", _player.playerName);
         PlayerPrefs.Save();
