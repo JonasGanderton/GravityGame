@@ -37,13 +37,13 @@ public class ProfileController : MonoBehaviour
         // Enable unlocked levels
         for (int i = 0; i <= _player.highestLevelCompleted; i++)
         {
-            LevelButtons[i].enabled = true;
+            LevelButtons[i].interactable = true;
         }
         
         // Disable locked levels
         for (int i = _player.highestLevelCompleted + 1; i < LevelButtons.Length; i++)
         {
-            LevelButtons[i].enabled = false;
+            LevelButtons[i].interactable = false;
         } 
     }
 }
