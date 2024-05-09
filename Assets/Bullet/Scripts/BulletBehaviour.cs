@@ -109,6 +109,12 @@ public class BulletBehaviour : MonoBehaviour
     public void BoostDamage(float multiplier)
     {
         _damage *= multiplier;
+        
+        Vector3 newScale = Vector3.one;
+        // Increase size proportional to boost
+        // Otherwise reset to original size
+        if (multiplier > 1) newScale *= (1 + multiplier/10);
+        transform.localScale = newScale;
     }
 
     public void AddBounce(int numBounces)
