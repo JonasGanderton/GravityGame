@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ public class PlayerProfile
 {
     [SerializeField] public string playerName;
     [SerializeField] public int highestLevelCompleted;
+    [SerializeField] public List<Achievement> achievements;
 
     public string ConvertToString()
     {

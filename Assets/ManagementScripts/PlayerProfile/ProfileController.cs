@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class ProfileController : MonoBehaviour
 {
     private PlayerProfile _player;
+    private AchievementService _achievementService;
     private Canvas PlayerSelect;
     private Canvas LevelSelect;
     private Button[] LevelButtons;
@@ -11,6 +12,7 @@ public class ProfileController : MonoBehaviour
     private void Awake()
     {
         LoadPlayerData(PlayerPrefs.GetString("CurrentPlayer"), false);
+        _achievementService = GetComponent<AchievementService>();
         
         Canvas[] canvases = FindObjectsOfType<Canvas>();
         if (canvases[0].CompareTag("LevelCompleteMenu")) return;
@@ -73,5 +75,11 @@ public class ProfileController : MonoBehaviour
             _player.highestLevelCompleted = level;
             _player.SaveToFile();
         }
+        _achievementService.Unlock("Completed level " + level + "!");
+    }
+
+    public PlayerProfile GetPlayerProfile()
+    {
+        return _player;
     }
 }
