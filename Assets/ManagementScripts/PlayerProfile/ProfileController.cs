@@ -35,7 +35,7 @@ public class ProfileController : MonoBehaviour
         LevelSelect.enabled = true;
 
         // Enable unlocked levels
-        for (int i = 0; i <= _player.highestLevelCompleted; i++)
+        for (int i = 0; i <= _player.highestLevelCompleted && i < LevelButtons.Length; i++)
         {
             LevelButtons[i].interactable = true;
         }
