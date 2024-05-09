@@ -77,4 +77,9 @@ public class PlayerMovementController : MonoBehaviour
         _currentRotationForce = 0;
         // If I want to stop movement entirely, disable rigidbody
     }
+    
+    public void SetLevelCompleted(bool complete)
+    {
+        _rb.simulated = !complete;
+    }
 }

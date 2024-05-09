@@ -6,6 +6,7 @@ public class PlayerInputController : MonoBehaviour
     private PlayerAnimationController _playerAnimationController;
     private PlayerBulletController _playerBulletController;
     private Health _playerHealth;
+    private bool _levelIsComplete;
 
     public void Awake()
     {
@@ -17,6 +18,8 @@ public class PlayerInputController : MonoBehaviour
 
     public void Update()
     {
+        if (_levelIsComplete) return; // No more ship controls once completed
+        
         if (_playerHealth.GetHitPoints() <= 0)
         {
             HandleDeathInputs();
@@ -66,5 +69,10 @@ public class PlayerInputController : MonoBehaviour
     private void HandleWeaponInputs()
     {
         if (Input.GetKey(KeyCode.Space)) _playerBulletController.TryShootingWeapon();
+    }
+    
+    public void SetLevelCompleted(bool complete)
+    {
+        _levelIsComplete = complete;
     }
 }
