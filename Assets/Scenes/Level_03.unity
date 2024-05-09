@@ -571,7 +571,7 @@ MonoBehaviour:
   effectDuration: 10
   damageBoost: 5
   reloadTimeDecrease: 0.5
-  extraBounces: 2
+  extraBounces: 1
 --- !u!61 &208582411
 BoxCollider2D:
   m_ObjectHideFlags: 0

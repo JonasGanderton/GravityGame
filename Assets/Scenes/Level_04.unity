@@ -17054,10 +17054,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect: 0
-  effectDuration: 15
+  effectDuration: 20
   damageBoost: 5
   reloadTimeDecrease: 0.5
-  extraBounces: 2
+  extraBounces: 1
 --- !u!61 &1202278576
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19509,10 +19509,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect: 1
-  effectDuration: 15
+  effectDuration: 20
   damageBoost: 5
   reloadTimeDecrease: 0.5
-  extraBounces: 2
+  extraBounces: 1
 --- !u!61 &1378360565
 BoxCollider2D:
   m_ObjectHideFlags: 0
