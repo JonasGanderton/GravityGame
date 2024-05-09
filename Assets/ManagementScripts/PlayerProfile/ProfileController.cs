@@ -10,7 +10,7 @@ public class ProfileController : MonoBehaviour
     
     private void Awake()
     {
-        LoadPlayerData(PlayerPrefs.GetString("CurrentPlayer"));
+        LoadPlayerData(PlayerPrefs.GetString("CurrentPlayer"), false);
         
         Canvas[] canvases = FindObjectsOfType<Canvas>();
         if (canvases[0].CompareTag("LevelCompleteMenu")) return;
@@ -24,16 +24,25 @@ public class ProfileController : MonoBehaviour
         LevelButtons = LevelSelect.GetComponentsInChildren<Button>();
         
     }
-    
+
     public void LoadPlayerData(string playerName)
     {
+        LoadPlayerData(playerName, true);
+    }
+    private void LoadPlayerData(string playerName, bool displayLevelSelect)
+    {
         TextAsset playerText = Resources.Load(playerName) as TextAsset;
-        
+
         if (playerText == null) return; // Create new player 
-        
+
         _player = PlayerProfile.CreateFromString(playerText.text);
+
+        Resources.UnloadAsset(playerText);
+
         PlayerPrefs.SetString("CurrentPlayer", _player.playerName);
         PlayerPrefs.Save();
+
+        if (displayLevelSelect) ShowLevelSelect();
     }
 
 
