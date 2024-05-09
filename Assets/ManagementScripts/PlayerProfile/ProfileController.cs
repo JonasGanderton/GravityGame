@@ -17,6 +17,8 @@ public class ProfileController : MonoBehaviour
         LevelSelect.enabled = false;
 
         LevelButtons = LevelSelect.GetComponentsInChildren<Button>();
+        
+        LoadPlayerData(PlayerPrefs.GetString("CurrentPlayer"));
     }
     
     public void LoadPlayerData(string playerName)
@@ -26,6 +28,8 @@ public class ProfileController : MonoBehaviour
         if (playerText == null) return; // Create new player 
         
         _player = PlayerProfile.CreateFromString(playerText.text);
+        PlayerPrefs.SetString("CurrentPlayer", _player.playerName);
+        PlayerPrefs.Save();
     }
 
 
