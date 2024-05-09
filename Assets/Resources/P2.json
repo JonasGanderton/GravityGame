@@ -1,4 +1,10 @@
 {
     "playerName": "P2",
-    "highestLevelCompleted": 2
+    "highestLevelCompleted": 1,
+    "achievements": [
+        {
+            "title": "Completed level 1!",
+            "unlocked": true
+        }
+    ]
 }
